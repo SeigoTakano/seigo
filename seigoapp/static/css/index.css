@@ -1,0 +1,40 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 3rem;
+  color: rgb(var(--bs-tertiary-color-rgb));
+  background-color: rgb(200, 202, 204);
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  background: linear-gradient(to bottom, #ededee, #c2cbd6);
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  text-align: center;
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+h1 {
+  font-size: 130px;
+  margin-bottom: 150px;
+  border-bottom: 2px solid white; width: 50%;
+  text-align: center;
+}
+
+.opacity-75 {
+  text-align: center;
+}

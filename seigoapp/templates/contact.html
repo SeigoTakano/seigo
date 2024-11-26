@@ -1,0 +1,183 @@
+{% load static %}
+<!doctype html>
+<html lang="ja" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.112.5">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
+
+<link href={% static "css/bootstrap.min.css" %} rel="stylesheet">
+
+    <style>
+
+      .navbar-nav {
+        justify-content: center;
+      }  
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      body {
+        background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+        margin: 0;
+        color: #343a40;
+        }
+
+      h1 {
+        text-align: center;
+        color: #d3d009;
+        margin-bottom: 40px;
+        margin-top: 20px;
+      }
+
+      h4 {
+        border-left: 4px solid #d3d009;
+        padding-left: 10px;
+      }
+    </style>
+
+
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+  <div class="container">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
+      <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="nav-item"><a class="nav-link" href="{% url 'seigoapp:index' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'seigoapp:mypage' %}">My Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'seigoapp:stu_score' %}">Student Score</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'seigoapp:schedule' %}">Schedule</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'seigoapp:contact' %}">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead" style="background-image: url({% static 'assets/img/contact-bgjpg' %})">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="page-heading">
+        <h1>お問い合わせ</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <h4>以下のフォームに記入してメッセージを送信してください。</h4>
+        {% if messages %}
+        <ul class="list-unstyled" style="list-style: none;">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags}}" {% endif %}>
+            {{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="my-5">
+          <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-floating">
+                <div class="form-group floating-label-form-group controls">
+                  {{ field.label_tag }}
+                  {{ field }}
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+            {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</main>
+
+<footer class="container">
+  <div class="row">
+    <div class="col-12 col-md">
+      <small class="d-block mb-3 text-body-secondary">&copy; Seigo Takano</small>
+    </div>
+</footer>
+    </body>
+</html>

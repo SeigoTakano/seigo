@@ -1,0 +1,164 @@
+/* 基本設定 */
+
+body {
+
+   background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+
+   margin: 0;
+
+   color: #343a40;
+
+}
+
+
+
+.containe{
+
+   max-width: 700px;
+
+   margin: auto;
+
+   background: #ffffff;
+
+   padding: 30px;
+
+   border-radius: 10px;
+
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* 見出し */
+
+h1 {
+
+   text-align: center;
+
+   color: #007BFF;
+
+   margin-bottom: 20px;
+
+}
+
+h2 {
+
+   font-size: 1.4rem;
+
+   color: #495057;
+
+   margin-top: 20px;
+
+   border-bottom: 2px solid #007BFF;
+
+   display: inline-block;
+
+   padding-bottom: 5px;
+
+}
+
+/* 入力フォーム */
+
+input, button {
+
+   width: 100%;
+
+   margin: 10px 0;
+
+   padding: 12px;
+
+   border: 1px solid #ced4da;
+
+   border-radius: 5px;
+
+   font-size: 1rem;
+
+   box-sizing: border-box;
+
+}
+
+/* ボタン */
+
+button {
+
+   background-color: #007BFF;
+
+   color: white;
+
+   font-weight: bold;
+
+   cursor: pointer;
+
+   transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+button:hover {
+
+   background-color: #0056b3;
+
+   transform: scale(1.02);
+
+}
+
+button:active {
+
+   transform: scale(1);
+
+}
+
+/* セクション */
+
+section {
+
+   margin-top: 20px;
+
+   padding: 10px 0;
+
+   border-top: 1px solid #dee2e6;
+
+}
+
+/* スケジュールリストと検索結果 */
+
+#scheduleList, #searchResults {
+
+   margin-top: 10px;
+
+   padding: 10px;
+
+   background-color: #f8f9fa;
+
+   border: 1px solid #ced4da;
+
+   border-radius: 5px;
+
+   max-height: 200px;
+
+   overflow-y: auto;
+
+}
+
+#scheduleList div, #searchResults div {
+
+   padding: 8px;
+
+   margin: 5px 0;
+
+   background: #ffffff;
+
+   border: 1px solid #e9ecef;
+
+   border-radius: 5px;
+
+   font-size: 0.95rem;
+
+}
+
+/* プレースホルダーのスタイル */
+
+input::placeholder {
+
+   color: #adb5bd;
+
+}
+
